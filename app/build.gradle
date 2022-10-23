@@ -1,0 +1,119 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+}
+
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
+
+android {
+    namespace 'com.heshmat.stockmarket'
+    compileSdk deps.app.compileSdk
+
+    defaultConfig {
+        applicationId "com.heshmat.stockmarket"
+        minSdk deps.app.minSdk
+        targetSdk deps.app.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation deps.androidx.corektx
+    implementation deps.androidx.lifecycle
+
+    //compose
+    implementation deps.compose.activity
+    implementation deps.compose.ui
+    implementation deps.compose.material3
+    implementation deps.compose.lifecycle
+    implementation deps.compose.material_icons
+    implementation deps.compose.flowlayout
+    implementation deps.compose.paging
+    implementation deps.compose.swiperefresh
+
+    implementation deps.compose.navigation
+    ksp deps.compose.navgiation_ksp
+
+    debugImplementation deps.compose.ui_tooling
+    debugImplementation deps.compose.ui_tooling_preview
+
+    //Dagger - Hilt
+    implementation deps.dagger_hilt.dagger_hilt
+    kapt deps.dagger_hilt.dagger_compiler
+    implementation deps.dagger_hilt.viewmodel
+    kapt deps.dagger_hilt.hilt_compiler
+    implementation deps.dagger_hilt.navigation_compose
+
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.moshi
+    implementation deps.okhttp.okhttp
+    implementation deps.okhttp.logging
+
+    //room
+    implementation deps.room.room
+    kapt deps.room.compiler
+    implementation deps.room.ktx
+
+
+    //open csv
+    deps.open_csv
+
+    //coil
+    implementation deps.coil
+
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.androidx
+    androidTestImplementation deps.test.espresso
+
+    androidTestImplementation deps.test.compose_ui_test
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation deps.test.compose_ui_test_manifest
+
+}
