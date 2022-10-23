@@ -89,12 +89,6 @@ dependencies {
     kapt deps.dagger_hilt.hilt_compiler
     implementation deps.dagger_hilt.navigation_compose
 
-    // Retrofit
-    implementation deps.retrofit.retrofit
-    implementation deps.retrofit.moshi
-    implementation deps.okhttp.okhttp
-    implementation deps.okhttp.logging
-
     //room
     implementation deps.room.room
     kapt deps.room.compiler

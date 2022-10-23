@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.heshmat.domain'
+    namespace 'com.heshmat.util'
     compileSdk deps.app.compileSdk
 
     defaultConfig {
