@@ -1,10 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'kotlin-kapt'
 }
 
 kotlin {
@@ -75,9 +75,10 @@ dependencies {
     implementation deps.compose.flowlayout
     implementation deps.compose.paging
     implementation deps.compose.swiperefresh
-
-    implementation deps.compose.navigation
-    ksp deps.compose.navgiation_ksp
+    //TODO(fix java.lang.NoSuchMethodError:
+    // 'kotlin.sequences.Sequence com.google.devtools.ksp.processing.Resolver.
+    //implementation deps.compose.navigation
+   // ksp deps.compose.navgiation_ksp
 
     debugImplementation deps.compose.ui_tooling
     debugImplementation deps.compose.ui_tooling_preview
@@ -88,12 +89,6 @@ dependencies {
     implementation deps.dagger_hilt.viewmodel
     kapt deps.dagger_hilt.hilt_compiler
     implementation deps.dagger_hilt.navigation_compose
-
-    //room
-    implementation deps.room.room
-    kapt deps.room.compiler
-    implementation deps.room.ktx
-
 
     //open csv
     deps.open_csv
