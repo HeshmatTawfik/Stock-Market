@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
-    id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'com.google.devtools.ksp' version '1.7.20-1.0.7'
     id 'kotlin-kapt'
 }
 
@@ -52,7 +52,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.1'
+        kotlinCompilerExtensionVersion '1.3.2'
     }
     packagingOptions {
         resources {
@@ -75,11 +75,8 @@ dependencies {
     implementation deps.compose.flowlayout
     implementation deps.compose.paging
     implementation deps.compose.swiperefresh
-    //TODO(fix java.lang.NoSuchMethodError:
-    // 'kotlin.sequences.Sequence com.google.devtools.ksp.processing.Resolver.
-    //implementation deps.compose.navigation
-   // ksp deps.compose.navgiation_ksp
-
+    implementation deps.compose.navigation
+    ksp deps.compose.navgiation_ksp
     debugImplementation deps.compose.ui_tooling
     debugImplementation deps.compose.ui_tooling_preview
 

@@ -16,7 +16,8 @@ buildscript {
             flowlayout        : '0.17.0',
             swiperefresh      : '0.24.2-alpha',
             paging            : '1.0.0-alpha14',
-            compose_navigation: '1.6.22-beta',
+            compose_navigation: '1.7.27-beta',
+            compose_navigation_ksp: '1.7.27-beta',
             dagger_hilt       : '2.40.5',
             hilt_viewmodel    : '1.0.0-alpha03',
             hilt              : '1.0.0',
@@ -56,7 +57,7 @@ buildscript {
                     paging            : "androidx.paging:paging-compose:${versions.paging}",
                     swiperefresh      : "com.google.accompanist:accompanist-swiperefresh:${versions.swiperefresh}",
                     navigation        : "io.github.raamcosta.compose-destinations:core:${versions.compose_navigation}",
-                    navgiation_ksp    : "io.github.raamcosta.compose-destinations:ksp:${versions.compose_navigation}",
+                    navgiation_ksp    : "io.github.raamcosta.compose-destinations:ksp:${versions.compose_navigation_ksp}",
             ],
 
             dagger_hilt: [
@@ -101,5 +102,5 @@ buildscript {
 plugins {
     id 'com.android.application' version '7.3.1' apply false
     id 'com.android.library' version '7.3.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
 }
