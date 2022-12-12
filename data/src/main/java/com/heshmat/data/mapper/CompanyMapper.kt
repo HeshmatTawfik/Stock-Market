@@ -11,6 +11,8 @@ fun CompanyListingEntity.toCompanyListing(): CompanyListing {
     )
 }
 
+fun List<CompanyListingEntity>.toCompanyListings() = map { it.toCompanyListing() }
+
 fun CompanyListing.toCompanyListingEntity(): CompanyListingEntity {
     return CompanyListingEntity(
         name = name,

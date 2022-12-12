@@ -29,3 +29,7 @@ android {
         jvmTarget = '1.8'
     }
 }
+dependencies {
+    implementation project(path: ':util')
+    implementation deps.coroutine
+}

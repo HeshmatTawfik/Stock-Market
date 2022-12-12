@@ -8,27 +8,28 @@ buildscript {
     }
 
     ext.versions = [
-            androidx_corektx  : '1.9.0',
-            androidx_lifecycle: '2.5.1',
-            compose_activity  : '1.6.0',
-            compose_material3 : '1.0.0-rc01',
-            lifecycle         : '2.4.1',
-            flowlayout        : '0.17.0',
-            swiperefresh      : '0.24.2-alpha',
-            paging            : '1.0.0-alpha14',
-            compose_navigation: '1.7.27-beta',
+            coroutine             : '1.6.4',
+            androidx_corektx      : '1.9.0',
+            androidx_lifecycle    : '2.5.1',
+            compose_activity      : '1.6.0',
+            compose_material3     : '1.0.0-rc01',
+            lifecycle             : '2.4.1',
+            flowlayout            : '0.17.0',
+            swiperefresh          : '0.24.2-alpha',
+            paging                : '1.0.0-alpha14',
+            compose_navigation    : '1.7.27-beta',
             compose_navigation_ksp: '1.7.27-beta',
-            dagger_hilt       : '2.40.5',
-            hilt_viewmodel    : '1.0.0-alpha03',
-            hilt              : '1.0.0',
-            retrofit          : '2.9.0',
-            okhttp            : '5.0.0-alpha.3',
-            room              : '2.4.3',
-            open_csv          : '5.5.2',
-            coil              : '2.2.2',
-            junit             : '4.13.2',
-            test_androidx     : '1.1.3',
-            test_espresso     : '3.4.0'
+            dagger_hilt           : '2.40.5',
+            hilt_viewmodel        : '1.0.0-alpha03',
+            hilt                  : '1.0.0',
+            retrofit              : '2.9.0',
+            okhttp                : '5.0.0-alpha.3',
+            room                  : '2.4.3',
+            open_csv              : '5.5.2',
+            coil                  : '2.2.2',
+            junit                 : '4.13.2',
+            test_androidx         : '1.1.3',
+            test_espresso         : '3.4.0'
 
     ]
 
@@ -38,6 +39,8 @@ buildscript {
                     targetSdk : 33,
                     compileSdk: 33,
             ],
+
+            coroutine  : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutine}",
 
             androidx   : [
                     corektx  : "androidx.core:core-ktx:${versions.androidx_corektx}",

@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':util')
     implementation project(path: ':domain')
 
     // Retrofit
@@ -50,5 +51,10 @@ dependencies {
     implementation deps.room.room
     implementation deps.room.ktx
     kapt deps.room.compiler
+
+    //dagger
+    //Dagger - Hilt
+    implementation deps.dagger_hilt.dagger_hilt
+    kapt deps.dagger_hilt.dagger_compiler
 
 }
