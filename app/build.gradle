@@ -87,12 +87,8 @@ dependencies {
     kapt deps.dagger_hilt.hilt_compiler
     implementation deps.dagger_hilt.navigation_compose
 
-    //open csv
-    deps.open_csv
-
     //coil
     implementation deps.coil
-
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidx

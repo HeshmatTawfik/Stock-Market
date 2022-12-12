@@ -52,6 +52,9 @@ dependencies {
     implementation deps.room.ktx
     kapt deps.room.compiler
 
+    //open csv
+    implementation deps.open_csv
+
     //dagger
     //Dagger - Hilt
     implementation deps.dagger_hilt.dagger_hilt
