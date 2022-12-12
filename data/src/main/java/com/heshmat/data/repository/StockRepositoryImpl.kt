@@ -1,6 +1,8 @@
 package com.heshmat.data.repository
 
+import com.heshmat.data.csv.CSVParser
 import com.heshmat.data.local.StockDatabase
+import com.heshmat.data.mapper.toCompanyListingEntities
 import com.heshmat.data.mapper.toCompanyListings
 import com.heshmat.data.remote.StockApi
 import com.heshmat.domain.model.CompanyListing
@@ -15,8 +17,9 @@ import javax.inject.Singleton
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
-    val api: StockApi,
-     db: StockDatabase
+    private val api: StockApi,
+    private val companyListingParser: CSVParser<CompanyListing>,
+    db: StockDatabase
 ) : StockRepository {
 
     private val dao = db.dao
@@ -40,24 +43,36 @@ class StockRepositoryImpl @Inject constructor(
             val isDbEmpty = localListing.isEmpty() && query.isBlank()
             val shouldJustLoadFromCache = !isDbEmpty && !fetchFromRemote
 
-            if (shouldJustLoadFromCache){
+            if (shouldJustLoadFromCache) {
                 emit(Resource.Loading(false))
                 return@flow
             }
 
-            val remoteListing = try{
+            val remoteListing = try {
                 val response = api.getListings()
-                response.byteStream()
-            }
-            catch (e: IOException){
+                companyListingParser.parse(response.byteStream())
+            } catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error("Couldn't load data"))
+                null
 
-            }
-            catch (e:HttpRetryException){
+            } catch (e: HttpRetryException) {
                 emit(Resource.Error("Couldn't load data"))
                 e.printStackTrace()
+                null
+            }
 
+            remoteListing?.let { listings ->
+                dao.clearCompanyListings()
+                dao.insertCompanyListings(listings.toCompanyListingEntities())
+                emit(
+                    Resource.Success(
+                        data = dao
+                            .searchCompanyListing("")
+                            .toCompanyListings()
+                    )
+                )
+                emit(Resource.Loading(false))
             }
         }
     }

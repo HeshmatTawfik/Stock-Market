@@ -20,3 +20,5 @@ fun CompanyListing.toCompanyListingEntity(): CompanyListingEntity {
         exchange = exchange
     )
 }
+
+fun List<CompanyListing>.toCompanyListingEntities() = map{it.toCompanyListingEntity()}
