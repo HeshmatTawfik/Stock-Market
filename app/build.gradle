@@ -63,6 +63,10 @@ android {
 
 dependencies {
 
+    implementation project(path: ':domain')
+    implementation project(path: ':util')
+
+
     implementation deps.androidx.corektx
     implementation deps.androidx.lifecycle
 
