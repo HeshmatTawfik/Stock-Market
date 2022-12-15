@@ -64,6 +64,7 @@ android {
 dependencies {
 
     implementation project(path: ':domain')
+    implementation project(path: ':data')
     implementation project(path: ':util')
 
 
@@ -87,7 +88,6 @@ dependencies {
     //Dagger - Hilt
     implementation deps.dagger_hilt.dagger_hilt
     kapt deps.dagger_hilt.dagger_compiler
-    implementation deps.dagger_hilt.viewmodel
     kapt deps.dagger_hilt.hilt_compiler
     implementation deps.dagger_hilt.navigation_compose
 
