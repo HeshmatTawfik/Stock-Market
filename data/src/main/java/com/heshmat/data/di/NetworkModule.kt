@@ -28,8 +28,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
+    ): OkHttpClient {
         return OkHttpClient().newBuilder()
+            .addInterceptor(authInterceptor)
             .addInterceptor(httpLoggingInterceptor)
             .build()
     }
