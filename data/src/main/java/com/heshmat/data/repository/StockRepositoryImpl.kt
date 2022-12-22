@@ -5,7 +5,7 @@ import com.heshmat.data.local.StockDatabase
 import com.heshmat.data.mapper.toCompanyListingEntities
 import com.heshmat.data.mapper.toCompanyListings
 import com.heshmat.data.remote.StockApi
-import com.heshmat.domain.model.CompanyListing
+import com.heshmat.domain.model.company_listing.CompanyListing
 import com.heshmat.domain.repository.StockRepository
 import com.heshmat.util.Resource
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.heshmat.domain.model
+package com.heshmat.domain.model.company_listing
 
 data class CompanyListing(
     val name: String,

@@ -3,7 +3,7 @@ package com.heshmat.data.di
 import com.heshmat.data.csv.CSVParser
 import com.heshmat.data.csv.CompanyListingParser
 import com.heshmat.data.repository.StockRepositoryImpl
-import com.heshmat.domain.model.CompanyListing
+import com.heshmat.domain.model.company_listing.CompanyListing
 import com.heshmat.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module

@@ -1,6 +1,6 @@
 package com.heshmat.data.csv
 
-import com.heshmat.domain.model.CompanyListing
+import com.heshmat.domain.model.company_listing.CompanyListing
 import com.opencsv.CSVReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
