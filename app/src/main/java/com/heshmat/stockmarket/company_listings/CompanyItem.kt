@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.heshmat.domain.model.CompanyListing
+import com.heshmat.domain.model.company_listing.CompanyListing
 import com.heshmat.stockmarket.ui.theme.StockMarketTheme
 
 @Composable

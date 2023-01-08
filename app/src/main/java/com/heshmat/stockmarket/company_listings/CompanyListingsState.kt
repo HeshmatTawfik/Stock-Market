@@ -1,6 +1,6 @@
 package com.heshmat.stockmarket.company_listings
 
-import com.heshmat.domain.model.CompanyListing
+import com.heshmat.domain.model.company_listing.CompanyListing
 
 data class CompanyListingsState(
     val companies: List<CompanyListing> = emptyList(),

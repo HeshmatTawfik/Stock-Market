@@ -30,7 +30,7 @@ buildscript {
 
     ext.deps = [
             app        : [
-                    minSdk    : 21,
+                    minSdk    : 26,
                     targetSdk : 33,
                     compileSdk: 33,
             ],
