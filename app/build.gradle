@@ -94,6 +94,9 @@ dependencies {
     //coil
     implementation deps.coil
 
+    //timber
+    implementation deps.timber
+
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidx
     androidTestImplementation deps.test.espresso

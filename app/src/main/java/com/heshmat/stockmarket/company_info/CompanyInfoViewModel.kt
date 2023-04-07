@@ -11,6 +11,7 @@ import com.heshmat.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,25 +27,31 @@ class CompanyInfoViewModel @Inject constructor(
     fun getCompanyInfoState() {
         viewModelScope.launch {
             val symbol = savedStatedHandle.get<String>("symbol")
+            Timber.d("get company info $symbol")
             if (symbol.isNullOrEmpty()) {
+                Timber.e("symbol is null or empty")
                 state = state.copy(error = "Something went wrong ...")
                 return@launch
             }
+            Timber.d("company info state now is loading")
             state = state.copy(isLoading = true)
             val companyInfoResult = async { repository.getCompanyInfo(symbol) }
             val intradayInfo = async { repository.getIntradayInfo(symbol) }
 
             updateState(companyInfoResult.await()) {
+                Timber.d("get company info $it")
                 state = state.copy(
                     company = it, error = null
                 )
             }
 
             updateState(intradayInfo.await()) {
+                Timber.d("get intraday info $it")
                 state = state.copy(
                     intradayInfoList = it, error = null
                 )
             }
+            Timber.d("company info state loading is false")
             state = state.copy(isLoading = false)
 
         }
@@ -57,12 +64,16 @@ class CompanyInfoViewModel @Inject constructor(
             }
 
             is Resource.Error -> {
+                Timber.e("update state error $result")
                 state = state.copy(
                     error = result.message
                 )
             }
 
-            else -> Unit
+            else -> {
+                Timber.e("This update state is either success or error, " +
+                        "if this log appears it means something is wrong")
+            }
         }
     }
 }
