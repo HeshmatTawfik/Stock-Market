@@ -32,4 +32,6 @@ android {
 dependencies {
     implementation project(path: ':util')
     implementation deps.coroutine
+
+    testImplementation deps.test.junit
 }

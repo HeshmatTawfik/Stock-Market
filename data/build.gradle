@@ -74,4 +74,8 @@ dependencies {
     implementation deps.dagger_hilt.dagger_hilt
     kapt deps.dagger_hilt.dagger_compiler
 
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.androidx
+    androidTestImplementation deps.test.espresso
+
 }
