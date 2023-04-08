@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             //testbitrise
+            // test staging 1.0.0
             StockMarketTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
