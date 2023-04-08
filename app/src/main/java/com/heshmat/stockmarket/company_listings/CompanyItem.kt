@@ -1,7 +1,5 @@
 package com.heshmat.stockmarket.company_listings
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -11,10 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.heshmat.domain.model.company_listing.CompanyListing
-import com.heshmat.stockmarket.ui.theme.StockMarketTheme
 
 @Composable
 fun CompanyItem(
@@ -57,19 +53,4 @@ fun CompanyItem(
 
         }
     }
-}
-
-@Composable
-@Preview(showBackground = true)
-@Preview("dark mode", showBackground = true, uiMode = UI_MODE_NIGHT_YES)
-fun Preview(){
-    StockMarketTheme() {
-            CompanyItem(
-                Modifier
-                    .background(MaterialTheme.colorScheme.background)
-                    .padding(8.dp),
-                CompanyListing("Tesla","A","exchange")
-            )
-    }
-
 }
